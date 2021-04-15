@@ -2,7 +2,7 @@
  "address": "1TeSTvb4w2PWE81S2rEELgmX2GCCExQGT",
  "background-color": "white",
  "description": "Blogging platform Demo",
- "domain": "Blog.ZeroNetwork.bit",
+ "domain": "Blog.KomputerNetwork.bit",
  "files": {
   "css/all.css": {
    "sha512": "65ddd3a2071a0f48c34783aa3b1bde4424bdea344630af05a237557a62bd55dc",
@@ -129,5 +129,5 @@
  },
  "signs_required": 1,
  "title": "ZeroBlog",
- "zeronet_version": "0.5.7"
+ "komputernet_version": "0.5.7"
 }

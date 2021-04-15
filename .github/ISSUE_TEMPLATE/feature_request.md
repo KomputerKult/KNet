@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for ZeroNet
+about: Suggest an idea for KomputerNet
 title: ''
 labels: ''
 assignees: ''

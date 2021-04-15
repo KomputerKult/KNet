@@ -196,7 +196,7 @@ class UiWebsocketPlugin(object):
     def actionPluginAddRequest(self, to, inner_path):
         self.pluginAction("add_request", self.site.address, inner_path)
         plugin_info = self.site.storage.loadJson(inner_path + "/plugin_info.json")
-        warning = "<b>Warning!<br/>Plugins has the same permissions as the ZeroNet client.<br/>"
+        warning = "<b>Warning!<br/>Plugins has the same permissions as the KomputerNet client.<br/>"
         warning += "Do not install it if you don't trust the developer.</b>"
 
         self.cmd(

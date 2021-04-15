@@ -18,7 +18,7 @@ class Text
 	emailLinks: (text) ->
 		return text.replace(/([a-zA-Z0-9]+)@zeroid.bit/g, "<a href='?to=$1' onclick='return Page.message_create.show(\"$1\")'>$1@zeroid.bit</a>")
 
-	# Convert zeronet html links to relaitve
+	# Convert komputernet html links to relaitve
 	fixHtmlLinks: (text) ->
 		if window.is_proxy
 			return text.replace(/href="http:\/\/(127.0.0.1|localhost):43110/g, 'href="http://zero')

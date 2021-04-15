@@ -1,12 +1,12 @@
-### ZeroNet 0.7.2 (2020-09-?) Rev4206?
+### KomputerNet 0.7.2 (2020-09-?) Rev4206?
 
 
 
-### ZeroNet 0.7.1 (2019-07-01) Rev4206
+### KomputerNet 0.7.1 (2019-07-01) Rev4206
 ### Added
  - Built-in logging console in the web UI to see what's happening in the background. (pull down top-right 0 button to see it)
  - Display database rebuild errors [Thanks to Lola]
- - New plugin system that allows to install and manage builtin/third party extensions to the ZeroNet client using the web interface.
+ - New plugin system that allows to install and manage builtin/third party extensions to the KomputerNet client using the web interface.
  - Support multiple trackers_file
  - Add OpenSSL 1.1 support to CryptMessage plugin based on Bitmessage modifications [Thanks to radfish]
  - Display visual error message on startup errors
@@ -17,7 +17,7 @@
  - Deny websocket connections from unknown origins
  - Restrict open_browser values to avoid RCE on sandbox escape
  - Offer access web interface by IP address in case of unknown host
- - Link to site's sidebar with "#ZeroNet:OpenSidebar" hash
+ - Link to site's sidebar with "#KomputerNet:OpenSidebar" hash
 
 ### Changed
  - Allow .. in file names [Thanks to imachug]
@@ -44,21 +44,21 @@
 
 #### Wrapper html injection vulnerability [Reported by ivanq]
 
-In ZeroNet before rev4188 the wrapper template variables was rendered incorrectly.
+In KomputerNet before rev4188 the wrapper template variables was rendered incorrectly.
 
 Result: The opened site was able to gain WebSocket connection with unrestricted ADMIN/NOSANDBOX access, change configuration values and possible RCE on client's machine.
 
 Fix: Fixed the template rendering code, disallowed WebSocket connections from unknown locations, restricted open_browser configuration values to avoid possible RCE in case of sandbox escape.
 
-Note: The fix is also back ported to ZeroNet Py 2.x version (Rev3870)
+Note: The fix is also back ported to KomputerNet Py 2.x version (Rev3870)
 
 
-### ZeroNet 0.7.0 (2019-06-12) Rev4106 (First release targeting Python 3.4+)
+### KomputerNet 0.7.0 (2019-06-12) Rev4106 (First release targeting Python 3.4+)
 ### Added
  - 5-10x faster signature verification by using libsecp256k1 (Thanks to ZeroMux)
  - Generated SSL certificate randomization to avoid protocol filters (Thanks to ValdikSS)
  - Offline mode
- - P2P source code update using ZeroNet protocol
+ - P2P source code update using KomputerNet protocol
  - ecdsaSign/Verify commands to CryptMessage plugin (Thanks to imachug)
  - Efficient file rename: change file names instead of re-downloading the file.
  - Make redirect optional on site cloning (Thanks to Lola)
@@ -84,7 +84,7 @@ Note: The fix is also back ported to ZeroNet Py 2.x version (Rev3870)
  - Fix browser reopen if executing start.py again. (Thanks to imachug)
 
 
-### ZeroNet 0.6.5 (2019-02-16) Rev3851 (Last release targeting Python 2.7.x)
+### KomputerNet 0.6.5 (2019-02-16) Rev3851 (Last release targeting Python 2.7.x)
 ### Added
  - IPv6 support in peer exchange, bigfiles, optional file finding, tracker sharing, socket listening and connecting (based on tangdou1 modifications)
  - New tracker database format with IPv6 support
@@ -111,19 +111,19 @@ Note: The fix is also back ported to ZeroNet Py 2.x version (Rev3870)
  - Detection and issue warning for latest no-script plugin
  - Fix atomic write of a non-existent file
  - Fix sql queries with lots of variables and sites with lots of content.json
- - Fix multi-line parsing of zeronet.conf
+ - Fix multi-line parsing of komputernet.conf
  - Fix site deletion from users.json
  - Fix site cloning before site downloaded (Reported by unsystemizer)
  - Fix queryJson for non-list nodes (Reported by MingchenZhang)
 
 
-## ZeroNet 0.6.4 (2018-10-20) Rev3660
+## KomputerNet 0.6.4 (2018-10-20) Rev3660
 ### Added
- - New plugin: UiConfig. A web interface that allows changing ZeroNet settings.
+ - New plugin: UiConfig. A web interface that allows changing KomputerNet settings.
  - New plugin: AnnounceShare. Share trackers between users, automatically announce client's ip as tracker if Bootstrapper plugin is enabled.
  - Global tracker stats on ZeroHello: Include statistics from all served sites instead of displaying request statistics only for one site.
  - Support custom proxy for trackers. (Configurable with /Config)
- - Adding peers to sites manually using zeronet_peers get parameter
+ - Adding peers to sites manually using komputernet_peers get parameter
  - Copy site address with peers link on the sidebar.
  - Zip file listing and streaming support for Bigfiles.
  - Tracker statistics on /Stats page
@@ -131,7 +131,7 @@ Note: The fix is also back ported to ZeroNet Py 2.x version (Rev3870)
  - Full support fileGet, fileList, dirList calls on tar.gz/zip files.
  - Archived_before support to user content rules to allow deletion of all user files before the specified date
  - Show and manage "Connecting" sites on ZeroHello
- - Add theme support to ZeroNet sites
+ - Add theme support to KomputerNet sites
  - Dark theme for ZeroHello, ZeroBlog, ZeroTalk
 
 ### Changed
@@ -154,22 +154,22 @@ Note: The fix is also back ported to ZeroNet Py 2.x version (Rev3870)
 
 #### "The Vacation" Sandbox escape bug [Reported by GitCenter / Krixano / ZeroLSTN]
 
-In ZeroNet 0.6.3 Rev3615 and earlier as a result of invalid file type detection, a malicious site could escape the iframe sandbox.
+In KomputerNet 0.6.3 Rev3615 and earlier as a result of invalid file type detection, a malicious site could escape the iframe sandbox.
 
 Result: Browser iframe sandbox escape
 
 Applied fix: Replaced the previous, file extension based file type identification with a proper one.
 
-Affected versions: All versions before ZeroNet Rev3616
+Affected versions: All versions before KomputerNet Rev3616
 
 
-## ZeroNet 0.6.3 (2018-06-26)
+## KomputerNet 0.6.3 (2018-06-26)
 ### Added
  - New plugin: ContentFilter that allows to have shared site and user block list.
  - Support Tor meek proxies to avoid tracker blocking of GFW
  - Detect network level tracker blocking and easy setting meek proxy for tracker connections.
  - Support downloading 2GB+ sites as .zip (Thx to Radtoo)
- - Support ZeroNet as a transparent proxy (Thx to JeremyRand)
+ - Support KomputerNet as a transparent proxy (Thx to JeremyRand)
  - Allow fileQuery as CORS command (Thx to imachug)
  - Windows distribution includes Tor and meek client by default
  - Download sites as zip link to sidebar
@@ -197,10 +197,10 @@ Affected versions: All versions before ZeroNet Rev3616
  - Optional file handling when multiple files have the same hash_id (first 4 chars of the hash)
  - Msgpack 0.5.5 and 0.5.6 compatibility
 
-## ZeroNet 0.6.2 (2018-02-18)
+## KomputerNet 0.6.2 (2018-02-18)
 
 ### Added
- - New plugin: AnnounceLocal to make ZeroNet work without an internet connection on the local network.
+ - New plugin: AnnounceLocal to make KomputerNet work without an internet connection on the local network.
  - Allow dbQuey and userGetSettings using the `as` API command on different sites with Cors permission
  - New config option: `--log_level` to reduce log verbosity and IO load
  - Prefer to connect to recent peers from trackers first
@@ -228,11 +228,11 @@ Affected versions: All versions before ZeroNet Rev3616
  - Bigfile info for non-existing files
 
 
-## ZeroNet 0.6.1 (2018-01-25)
+## KomputerNet 0.6.1 (2018-01-25)
 
 ### Added
  - New plugin: Chart
- - Collect and display charts about your contribution to ZeroNet network
+ - Collect and display charts about your contribution to KomputerNet network
  - Allow list as argument replacement in sql queries. (Thanks to imachug)
  - Newsfeed query time statistics (Click on "From XX sites in X.Xs on ZeroHello)
  - New UiWebsocket API command: As to run commands as other site
@@ -264,7 +264,7 @@ Affected versions: All versions before ZeroNet Rev3616
  - Unreliable Websocket connection when requesting files from different sites at the same time
 
 
-## ZeroNet 0.6.0 (2017-10-17)
+## KomputerNet 0.6.0 (2017-10-17)
 
 ### Added
  - New plugin: Big file support
@@ -291,12 +291,12 @@ Affected versions: All versions before ZeroNet Rev3616
  - Major optimization on Bootstrapper plugin SQL queries
  - Don't reset bad file counter on restart, to allow easier give up on unreachable files
  - Incoming connection limit changed from 1000 to 500 to avoid reaching socket limit on Windows
- - Changed tracker boot.zeronet.io domain, because zeronet.io got banned in some countries
+ - Changed tracker boot.komputernet.io domain, because komputernet.io got banned in some countries
 
 #### Fixed
  - Sub-directories in user directories
 
-## ZeroNet 0.5.7 (2017-07-19)
+## KomputerNet 0.5.7 (2017-07-19)
 ### Added
  - New plugin: CORS to request read permission to other site's content
  - New API command: userSetSettings/userGetSettings to store site's settings in users.json
@@ -313,7 +313,7 @@ Affected versions: All versions before ZeroNet Rev3616
  - Allow space, [], () characters in filenames
  - Disable cross-site resource loading to improve privacy. [Reported by Beardog108]
  - Download directly accessed Pdf/Svg/Swf files instead of displaying them to avoid wrapper escape using in JS in SVG file. [Reported by Beardog108]
- - Disallow potentially unsafe regular expressions to avoid ReDoS [Reported by MuxZeroNet]
+ - Disallow potentially unsafe regular expressions to avoid ReDoS [Reported by MuxKomputerNet]
 
 ### Fixed
  - Detecting data directory when running Windows distribution exe [Reported by Plasmmer]
@@ -321,7 +321,7 @@ Affected versions: All versions before ZeroNet Rev3616
  - Error on exiting when no connection server started
 
 
-## ZeroNet 0.5.6 (2017-06-15)
+## KomputerNet 0.5.6 (2017-06-15)
 ### Added
  - Callback for certSelect API command
  - More compact list formatting in json
@@ -342,31 +342,31 @@ Affected versions: All versions before ZeroNet Rev3616
 
 #### Proxy bypass during source upgrade [Reported by ZeroMux]
 
-In ZeroNet before 0.5.6 during the client's built-in source code upgrade mechanism,
-ZeroNet did not respect Tor and/or proxy settings.
+In KomputerNet before 0.5.6 during the client's built-in source code upgrade mechanism,
+KomputerNet did not respect Tor and/or proxy settings.
 
-Result: ZeroNet downloaded the update without using the Tor network and potentially leaked the connections.
+Result: KomputerNet downloaded the update without using the Tor network and potentially leaked the connections.
 
 Fix: Removed the problematic code line from the updater that removed the proxy settings from the socket library.
 
-Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
+Affected versions: KomputerNet 0.5.5 and earlier, Fixed in: KomputerNet 0.5.6
 
 
 #### XSS vulnerability using DNS rebinding. [Reported by Beardog108]
 
-In ZeroNet before 0.5.6 the web interface did not validate the request's Host parameter.
+In KomputerNet before 0.5.6 the web interface did not validate the request's Host parameter.
 
 Result: An attacker using a specially crafted DNS entry could have bypassed the browser's cross-site-scripting protection
 and potentially gained access to user's private data stored on site.
 
-Fix: By default ZeroNet only accept connections from 127.0.0.1 and localhost hosts.
+Fix: By default KomputerNet only accept connections from 127.0.0.1 and localhost hosts.
 If you bind the ui server to an external interface, then it also adds the first http request's host to the allowed host list
 or you can define it manually using --ui_host.
 
-Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
+Affected versions: KomputerNet 0.5.5 and earlier, Fixed in: KomputerNet 0.5.6
 
 
-## ZeroNet 0.5.5 (2017-05-18)
+## KomputerNet 0.5.5 (2017-05-18)
 ### Added
 - Outgoing socket binding by --bind parameter
 - Database rebuilding progress bar
@@ -385,7 +385,7 @@ Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
 - Multi-line confirmation dialog
 
 
-## ZeroNet 0.5.4 (2017-04-14)
+## KomputerNet 0.5.4 (2017-04-14)
 ### Added
 - Major speed and CPU usage enhancements in Tor always mode
 - Send skipped modifications to outdated clients
@@ -402,7 +402,7 @@ Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
 - Fix leaking files in data directory by webui
 
 
-## ZeroNet 0.5.3 (2017-02-27)
+## KomputerNet 0.5.3 (2017-02-27)
 ### Added
 - Tar.gz/zip packed site support
 - Utf8 filenames in archive files
@@ -417,7 +417,7 @@ Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
 - Fix missing json_row errors when using Mute plugin
 
 
-## ZeroNet 0.5.2 (2017-02-09)
+## KomputerNet 0.5.2 (2017-02-09)
 ### Added
 - User muting
 - Win/Mac signed exe/.app
@@ -435,7 +435,7 @@ Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
 - Fix error reporting on async websocket functions
 
 
-## ZeroNet 0.5.1 (2016-11-18)
+## KomputerNet 0.5.1 (2016-11-18)
 ### Added
 - Multi language interface
 - New plugin: Translation helper for site html and js files
@@ -445,7 +445,7 @@ Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
 - Parallel optional file downloading
 
 
-## ZeroNet 0.5.0 (2016-11-08)
+## KomputerNet 0.5.0 (2016-11-08)
 ### Added
 - New Plugin: Allow list/delete/pin/manage files on ZeroHello
 - New API commands to follow user's optional files, and query stats for optional files
@@ -457,7 +457,7 @@ Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
 
 ### Changed
 - Separate lock file for better Windows compatibility
-- When executing start.py open browser even if ZeroNet is already running
+- When executing start.py open browser even if KomputerNet is already running
 - Keep plugin order after reload to allow plugins to extends an another plug-in
 - Only save sites.json if fully loaded to avoid data loss
 - Change aletorrenty tracker to a more reliable one
@@ -480,7 +480,7 @@ Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
 - Fix file write confirmation dialog
 
 
-## ZeroNet 0.4.1 (2016-09-05)
+## KomputerNet 0.4.1 (2016-09-05)
 ### Added
 - Major core changes to allow fast startup and lower memory usage
 - Try to reconnect to Tor on lost connection
@@ -510,10 +510,10 @@ Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
 - Fix --size_limit parsing from command line
 
 
-## ZeroNet 0.4.0 (2016-08-11)
+## KomputerNet 0.4.0 (2016-08-11)
 ### Added
 - Merger site plugin
-- Live source code reloading: Faster core development by allowing me to make changes in ZeroNet source code without restarting it.
+- Live source code reloading: Faster core development by allowing me to make changes in KomputerNet source code without restarting it.
 - New json table format for merger sites
 - Database rebuild from sidebar.
 - Allow to store custom data directly in json table: Much simpler and faster SQL queries.
@@ -539,13 +539,13 @@ Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
 - Windows XP ZeroBundle compatibility (THX to people of China)
 
 
-## ZeroNet 0.3.7 (2016-05-27)
+## KomputerNet 0.3.7 (2016-05-27)
 ### Changed
 - Patch command to reduce bandwidth usage by transfer only the changed lines
 - Other cpu/memory optimizations
 
 
-## ZeroNet 0.3.6 (2016-05-27)
+## KomputerNet 0.3.6 (2016-05-27)
 ### Added
 - New ZeroHello
 - Newsfeed function
@@ -554,16 +554,16 @@ Affected versions: ZeroNet 0.5.5 and earlier, Fixed in: ZeroNet 0.5.6
 - Security fixes
 
 
-## ZeroNet 0.3.5 (2016-02-02)
+## KomputerNet 0.3.5 (2016-02-02)
 ### Added
 - Full Tor support with .onion hidden services
-- Bootstrap using ZeroNet protocol
+- Bootstrap using KomputerNet protocol
 
 ### Fixed
 - Fix Gevent 1.0.2 compatibility
 
 
-## ZeroNet 0.3.4 (2015-12-28)
+## KomputerNet 0.3.4 (2015-12-28)
 ### Added
 - AES, ECIES API function support
 - PushState and ReplaceState url manipulation support in API

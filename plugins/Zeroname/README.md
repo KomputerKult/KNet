@@ -31,7 +31,7 @@ You can start your node : `./namecoind`
 
 ### Create a Zeroname site
 
-You will also need to create a site `python zeronet.py createSite` and regitser the info.
+You will also need to create a site `python komputernet.py createSite` and regitser the info.
 
 In the site you will need to create a file `./data/<your-site>/data/names.json` with this is it:
 ```
@@ -44,7 +44,7 @@ In `~/.namecoin/zeroname_config.json`
 ```
 {
   "lastprocessed": 223910,
-  "zeronet_path": "/root/ZeroNet", # Update with your path
+  "komputernet_path": "/root/KomputerNet", # Update with your path
   "privatekey": "", # Update with your private key of your site
   "site": "" # Update with the address of your site
 }

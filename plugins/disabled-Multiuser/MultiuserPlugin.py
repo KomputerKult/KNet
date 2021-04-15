@@ -232,15 +232,15 @@ class UiWebsocketPlugin(object):
             <input type='text' class='masterseed' id='button_notification_masterseed' value='Click here to show' readonly/>
             <div style='text-align: center; font-size: 85%; margin-bottom: 10px;'>
              or <a href='#Download' id='button_notification_download'
-             class='masterseed_download' download='zeronet_private_key.backup'>Download backup as text file</a>
+             class='masterseed_download' download='komputernet_private_key.backup'>Download backup as text file</a>
             </div>
             <div>
              This is your private key, <b>save it</b>, so you can login next time.<br>
              <b>Warning: Without this key, your account will be lost forever!</b>
             </div><br>
             <a href='#' class='button' style='margin-left: 0px'>Ok, Saved it!</a><br><br>
-            <small>This site allows you to browse ZeroNet content, but if you want to secure your account <br>
-            and help to keep the network alive, then please run your own <a href='https://zeronet.io' target='_blank'>ZeroNet client</a>.</small>
+            <small>This site allows you to browse KomputerNet content, but if you want to secure your account <br>
+            and help to keep the network alive, then please run your own <a href='https://komputernet.io' target='_blank'>KomputerNet client</a>.</small>
         """
 
         self.cmd("notification", ["info", message])
@@ -250,7 +250,7 @@ class UiWebsocketPlugin(object):
                 this.value = "{master_seed}"; this.setSelectionRange(0,100);
             })
             $("#button_notification_download").on("mousedown", function() {
-                this.href = window.URL.createObjectURL(new Blob(["ZeroNet user master seed:\\r\\n{master_seed}"]))
+                this.href = window.URL.createObjectURL(new Blob(["KomputerNet user master seed:\\r\\n{master_seed}"]))
             })
         """.replace("{master_seed}", master_seed)
         self.cmd("injectScript", script)

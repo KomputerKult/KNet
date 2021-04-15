@@ -135,7 +135,7 @@ def _get_local_ips():
             s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
             # Not using <broadcast> because gevents getaddrinfo doesn't like that
             # using port 1 as per hobbldygoop's comment about port 0 not working on osx:
-            # https://github.com/sirMackk/ZeroNet/commit/fdcd15cf8df0008a2070647d4d28ffedb503fba2#commitcomment-9863928
+            # https://github.com/sirMackk/KomputerNet/commit/fdcd15cf8df0008a2070647d4d28ffedb503fba2#commitcomment-9863928
             s.connect(('239.255.255.250', 1))
             return [s.getsockname()[0]]
         except:
@@ -385,11 +385,11 @@ if __name__ == "__main__":
 
     s = time.time()
     print("Opening port...")
-    print("Success:", ask_to_open_port(15443, "ZeroNet", protos=["TCP"]))
+    print("Success:", ask_to_open_port(15443, "KomputerNet", protos=["TCP"]))
     print("Done in", time.time() - s)
 
 
     print("Closing port...")
-    print("Success:", ask_to_close_port(15443, "ZeroNet", protos=["TCP"]))
+    print("Success:", ask_to_close_port(15443, "KomputerNet", protos=["TCP"]))
     print("Done in", time.time() - s)
 

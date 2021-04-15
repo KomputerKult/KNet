@@ -20,10 +20,10 @@ class Console extends Class
 				handleMessageWebsocket_original(message)
 
 		$(window).on "hashchange", =>
-			if window.top.location.hash.startsWith("#ZeroNet:Console")
+			if window.top.location.hash.startsWith("#KomputerNet:Console")
 				@open()
 
-		if window.top.location.hash.startsWith("#ZeroNet:Console")
+		if window.top.location.hash.startsWith("#KomputerNet:Console")
 			setTimeout (=> @open()), 10
 
 	createHtmltag: ->
@@ -195,7 +195,7 @@ class Console extends Class
 		$("a", @tabs).removeClass("active")
 		elem.addClass("active")
 		@changeFilter(@tab_active)
-		window.top.location.hash = "#ZeroNet:Console:" + elem.data("title")
+		window.top.location.hash = "#KomputerNet:Console:" + elem.data("title")
 		return false
 
 window.Console = Console

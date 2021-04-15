@@ -34,7 +34,7 @@ def update():
     inner_paths = list(updatesite_content_json.get("files", {}).keys())
     inner_paths += list(updatesite_content_json.get("files_optional", {}).keys())
 
-    # Keep file only in ZeroNet directory
+    # Keep file only in KomputerNet directory
     inner_paths = [inner_path for inner_path in inner_paths if re.match("^(core|bundle)", inner_path)]
 
     # Checking plugins

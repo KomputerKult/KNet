@@ -116,7 +116,7 @@ class UiWebsocketPlugin(object):
 
         peer_ips = [peer.key for peer in site.getConnectablePeers(20, allow_private=False)]
         peer_ips.sort(key=lambda peer_ip: ".onion:" in peer_ip)
-        copy_link = "http://127.0.0.1:43110/%s/?zeronet_peers=%s" % (
+        copy_link = "http://127.0.0.1:43110/%s/?komputernet_peers=%s" % (
             site.content_manager.contents.get("content.json", {}).get("domain", site.address),
             ",".join(peer_ips)
         )
@@ -175,7 +175,7 @@ class UiWebsocketPlugin(object):
               {_[Files]}
               <a href='/list/{site.address}' class='link-right link-outline' id="browse-files">{_[Browse files]}</a>
               <small class="label-right">
-               <a href='/ZeroNet-Internal/Zip?address={site.address}' id='link-zip' class='link-right' download='site.zip'>{_[Save as .zip]}</a>
+               <a href='/KomputerNet-Internal/Zip?address={site.address}' id='link-zip' class='link-right' download='site.zip'>{_[Save as .zip]}</a>
               </small>
              </label>
              <ul class='graph graph-stacked'>

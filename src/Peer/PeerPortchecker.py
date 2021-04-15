@@ -31,7 +31,7 @@ class PeerPortchecker(object):
         self.log.info("Trying to open port using UpnpPunch...")
 
         try:
-            UpnpPunch.ask_to_open_port(port, 'ZeroNet', retries=3, protos=["TCP"])
+            UpnpPunch.ask_to_open_port(port, 'KomputerNet', retries=3, protos=["TCP"])
             self.upnp_port_opened = True
         except Exception as err:
             self.log.warning("UpnpPunch run error: %s" % Debug.formatException(err))

@@ -1,7 +1,7 @@
 {
-	"ZeroNet config": "ZeroNetの設定",
+	"KomputerNet config": "KomputerNetの設定",
 	"Web Interface": "WEBインターフェース",
-	"Open web browser on ZeroNet startup": "ZeroNet起動時に自動でブラウザーを開く",
+	"Open web browser on KomputerNet startup": "KomputerNet起動時に自動でブラウザーを開く",
 
 	"Network": "ネットワーク",
 	"Offline mode": "オフラインモード",
@@ -58,5 +58,5 @@
 	" configuration item value changed": " の項目の値が変更されました",
 	"Save settings": "設定を保存",
 	"Some changed settings requires restart": "一部の変更の適用には再起動が必要です。",
-	"Restart ZeroNet client": "ZeroNetクライアントを再起動"
+	"Restart KomputerNet client": "KomputerNetクライアントを再起動"
 }

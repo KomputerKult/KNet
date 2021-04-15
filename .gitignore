@@ -28,8 +28,8 @@ tools/tor/data
 # PhantomJS, downloaded manually for unit tests
 tools/phantomjs
 
-# ZeroNet config file
-zeronet.conf
+# KomputerNet config file
+komputernet.conf
 
-# ZeroNet log files
+# KomputerNet log files
 log/*

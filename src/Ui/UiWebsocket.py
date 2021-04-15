@@ -1138,7 +1138,7 @@ class UiWebsocket(object):
             for websocket in self.server.websockets:
                 websocket.cmd(
                     "notification",
-                    ["info", _["Updating ZeroNet client, will be back in a few minutes..."], 20000]
+                    ["info", _["Updating KomputerNet client, will be back in a few minutes..."], 20000]
                 )
                 websocket.cmd("updating")
 
@@ -1151,7 +1151,7 @@ class UiWebsocket(object):
 
         self.cmd(
             "confirm",
-            [_["Update <b>ZeroNet client</b> to latest version?"], _["Update"]],
+            [_["Update <b>KomputerNet client</b> to latest version?"], _["Update"]],
             cbServerUpdate
         )
 
@@ -1178,9 +1178,9 @@ class UiWebsocket(object):
             main.ui_server.stop()
 
         if restart:
-            message = [_["Restart <b>ZeroNet client</b>?"], _["Restart"]]
+            message = [_["Restart <b>KomputerNet client</b>?"], _["Restart"]]
         else:
-            message = [_["Shut down <b>ZeroNet client</b>?"], _["Shut down"]]
+            message = [_["Shut down <b>KomputerNet client</b>?"], _["Shut down"]]
         self.cmd("confirm", message, cbServerShutdown)
 
     @flag.admin

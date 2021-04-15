@@ -33,7 +33,7 @@ class UiFileManager extends ZeroFrame
 		@cmd "serverInfo", {}, (server_info) =>
 			@server_info = server_info
 		@cmd "siteInfo", {}, (site_info) =>
-			@cmd("wrapperSetTitle", "List: /#{@list_inner_path} - #{site_info.content.title} - ZeroNet")
+			@cmd("wrapperSetTitle", "List: /#{@list_inner_path} - #{site_info.content.title} - KomputerNet")
 			@site_info = site_info
 			if @file_editor then @file_editor.on_loaded.then =>
 				@file_editor.cm.setOption("readOnly", not site_info.settings.own)

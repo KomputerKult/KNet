@@ -28,7 +28,7 @@ class ActionsPlugin(object):
 
         icon = notificationicon.NotificationIcon(
             os.path.join(os.path.dirname(os.path.abspath(__file__)), 'trayicon.ico'),
-            "ZeroNet %s" % config.version
+            "KomputerNet %s" % config.version
         )
         self.icon = icon
 
@@ -53,12 +53,12 @@ class ActionsPlugin(object):
             (self.titleConsole, self.toggleConsole),
             (self.titleAutorun, self.toggleAutorun),
             "--",
-            (_["ZeroNet Twitter"], lambda: self.opensite("https://twitter.com/HelloZeroNet")),
-            (_["ZeroNet Reddit"], lambda: self.opensite("http://www.reddit.com/r/zeronet/")),
-            (_["ZeroNet Github"], lambda: self.opensite("https://github.com/HelloZeroNet/ZeroNet")),
-            (_["Report bug/request feature"], lambda: self.opensite("https://github.com/HelloZeroNet/ZeroNet/issues")),
+            (_["KomputerNet Twitter"], lambda: self.opensite("https://twitter.com/HelloKomputerNet")),
+            (_["KomputerNet Reddit"], lambda: self.opensite("http://www.reddit.com/r/komputernet/")),
+            (_["KomputerNet Github"], lambda: self.opensite("https://github.com/HelloKomputerNet/KomputerNet")),
+            (_["Report bug/request feature"], lambda: self.opensite("https://github.com/HelloKomputerNet/KomputerNet/issues")),
             "--",
-            (_["!Open ZeroNet"], lambda: self.opensite("http://%s:%s/%s" % (ui_ip, config.ui_port, config.homepage))),
+            (_["!Open KomputerNet"], lambda: self.opensite("http://%s:%s/%s" % (ui_ip, config.ui_port, config.homepage))),
             "--",
             (_["Quit"], self.quit),
         ]
@@ -121,7 +121,7 @@ class ActionsPlugin(object):
             self.console = True
 
     def getAutorunPath(self):
-        return "%s\\zeronet.cmd" % winfolders.get(winfolders.STARTUP)
+        return "%s\\komputernet.cmd" % winfolders.get(winfolders.STARTUP)
 
     def formatAutorun(self):
         args = sys.argv[:]
@@ -142,7 +142,7 @@ class ActionsPlugin(object):
         cmd = " ".join(args)
 
         # Dont open browser on autorun
-        cmd = cmd.replace("start.py", "zeronet.py").strip()
+        cmd = cmd.replace("start.py", "komputernet.py").strip()
         cmd += ' --open_browser ""'
 
         return "\r\n".join([
@@ -158,7 +158,7 @@ class ActionsPlugin(object):
         return os.path.isfile(path) and open(path, "rb").read().decode("utf8") == self.formatAutorun()
 
     def titleAutorun(self):
-        translate = _["Start ZeroNet when Windows starts"]
+        translate = _["Start KomputerNet when Windows starts"]
         if self.isAutorunEnabled():
             return "+" + translate
         else:

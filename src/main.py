@@ -22,8 +22,8 @@ if gevent.version_info.major <= 1:  # Workaround for random crash when libuv use
 import gevent.monkey
 gevent.monkey.patch_all(thread=False, subprocess=False)
 
-update_after_shutdown = False  # If set True then update and restart zeronet after main loop ended
-restart_after_shutdown = False  # If set True then restart zeronet after main loop ended
+update_after_shutdown = False  # If set True then update and restart komputernet after main loop ended
+restart_after_shutdown = False  # If set True then restart komputernet after main loop ended
 
 # Load config
 from Config import config
@@ -49,7 +49,7 @@ if config.action == "main":
         lock = helper.openLocked("%s/lock.pid" % config.data_dir, "w")
         lock.write("%s" % os.getpid())
     except BlockingIOError as err:
-        startupError("Can't open lock file, your ZeroNet client is probably already running, exiting... (%s)" % err)
+        startupError("Can't open lock file, your KomputerNet client is probably already running, exiting... (%s)" % err)
         if config.open_browser and config.open_browser != "False":
             print("Opening browser: %s...", config.open_browser)
             import webbrowser
@@ -593,7 +593,7 @@ class Actions(object):
 
 
 actions = Actions()
-# Starts here when running zeronet.py
+# Starts here when running komputernet.py
 
 
 def start():

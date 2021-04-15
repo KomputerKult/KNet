@@ -1,7 +1,7 @@
 {
-	"ZeroNet config": "Konfiguracja ZeroNet",
+	"KomputerNet config": "Konfiguracja KomputerNet",
 	"Web Interface": "Interfejs webowy",
-	"Open web browser on ZeroNet startup": "Otwórz przeglądarkę podczas uruchomienia ZeroNet",
+	"Open web browser on KomputerNet startup": "Otwórz przeglądarkę podczas uruchomienia KomputerNet",
 
 	"Network": "Sieć",
 	"Offline mode": "Tryb offline",
@@ -57,6 +57,6 @@
 
 	" configuration item value changed": " obiekt konfiguracji zmieniony",
 	"Save settings": "Zapisz ustawienia",
-	"Some changed settings requires restart": "Niektóre zmiany ustawień wymagają ponownego uruchomienia ZeroNet",
-	"Restart ZeroNet client": "Uruchom ponownie ZeroNet"
+	"Some changed settings requires restart": "Niektóre zmiany ustawień wymagają ponownego uruchomienia KomputerNet",
+	"Restart KomputerNet client": "Uruchom ponownie KomputerNet"
 }

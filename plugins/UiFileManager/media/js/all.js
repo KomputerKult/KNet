@@ -2971,7 +2971,7 @@
       })(this));
       return this.cmd("siteInfo", {}, (function(_this) {
         return function(site_info) {
-          _this.cmd("wrapperSetTitle", "List: /" + _this.list_inner_path + " - " + site_info.content.title + " - ZeroNet");
+          _this.cmd("wrapperSetTitle", "List: /" + _this.list_inner_path + " - " + site_info.content.title + " - KomputerNet");
           _this.site_info = site_info;
           if (_this.file_editor) {
             _this.file_editor.on_loaded.then(function() {

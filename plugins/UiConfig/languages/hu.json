@@ -1,7 +1,7 @@
 {
-	"ZeroNet config": "ZeroNet beállítások",
+	"KomputerNet config": "KomputerNet beállítások",
 	"Web Interface": "Web felület",
-	"Open web browser on ZeroNet startup": "Bögésző megnyitása a ZeroNet indulásakor",
+	"Open web browser on KomputerNet startup": "Bögésző megnyitása a KomputerNet indulásakor",
 
 	"Network": "Hálózat",
 	"File server port": "FIle szerver port",
@@ -29,5 +29,5 @@
 	" configuration item value changed": " beállítás megváltoztatva",
 	"Save settings": "Beállítások mentése",
 	"Some changed settings requires restart": "A beállítások érvényesítéséhez a kliens újraindítása szükséges",
-	"Restart ZeroNet client": "ZeroNet kliens újraindítása"
+	"Restart KomputerNet client": "KomputerNet kliens újraindítása"
 }

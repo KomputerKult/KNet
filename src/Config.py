@@ -30,7 +30,7 @@ class Config(object):
         ])
         self.start_dir = self.getStartDir()
 
-        self.config_file = self.start_dir + "/zeronet.conf"
+        self.config_file = self.start_dir + "/komputernet.conf"
         self.data_dir = self.start_dir + "/data"
         self.log_dir = self.start_dir + "/log"
         self.openssl_lib_file = None
@@ -59,19 +59,19 @@ class Config(object):
         if "--start_dir" in self.argv:
             start_dir = self.argv[self.argv.index("--start_dir") + 1]
         elif this_file.endswith("/Contents/Resources/core/src/Config.py"):
-            # Running as ZeroNet.app
+            # Running as KomputerNet.app
             if this_file.startswith("/Application") or this_file.startswith("/private") or this_file.startswith(os.path.expanduser("~/Library")):
                 # Runnig from non-writeable directory, put data to Application Support
-                start_dir = os.path.expanduser("~/Library/Application Support/ZeroNet")
+                start_dir = os.path.expanduser("~/Library/Application Support/KomputerNet")
             else:
                 # Running from writeable directory put data next to .app
                 start_dir = re.sub("/[^/]+/Contents/Resources/core/src/Config.py", "", this_file)
         elif this_file.endswith("/core/src/Config.py"):
             # Running as exe or source is at Application Support directory, put var files to outside of core dir
             start_dir = this_file.replace("/core/src/Config.py", "")
-        elif this_file.endswith("usr/share/zeronet/src/Config.py"):
+        elif this_file.endswith("usr/share/komputernet/src/Config.py"):
             # Running from non-writeable location, e.g., AppImage
-            start_dir = os.path.expanduser("~/ZeroNet")
+            start_dir = os.path.expanduser("~/KomputerNet")
         else:
             start_dir = "."
 
@@ -111,7 +111,7 @@ class Config(object):
         else:
             fix_float_decimals = False
 
-        config_file = self.start_dir + "/zeronet.conf"
+        config_file = self.start_dir + "/komputernet.conf"
         data_dir = self.start_dir + "/data"
         log_dir = self.start_dir + "/log"
 
@@ -312,7 +312,7 @@ class Config(object):
         self.parser.add_argument('--tor_hs_limit', help='Maximum number of hidden services in Tor always mode', metavar='limit', type=int, default=10)
         self.parser.add_argument('--tor_hs_port', help='Hidden service port in Tor always mode', metavar='limit', type=int, default=15441)
 
-        self.parser.add_argument('--version', action='version', version='ZeroNet %s r%s' % (self.version, self.rev))
+        self.parser.add_argument('--version', action='version', version='KomputerNet %s r%s' % (self.version, self.rev))
         self.parser.add_argument('--end', help='Stop multi value argument parsing', action='store_true')
 
         return self.parser
@@ -329,7 +329,7 @@ class Config(object):
                     trackers_file_path = trackers_file
                 elif trackers_file.startswith("{data_dir}"):  # Relative to data_dir
                     trackers_file_path = trackers_file.replace("{data_dir}", self.data_dir)
-                else:  # Relative to zeronet.py
+                else:  # Relative to komputernet.py
                     trackers_file_path = self.start_dir + "/" + trackers_file
 
                 for line in open(trackers_file_path):
@@ -413,7 +413,7 @@ class Config(object):
                 self.ip_local.append(self.fileserver_ip)
 
         if silent:  # Restore original functions
-            if current_parser.exited and self.action == "main":  # Argument parsing halted, don't start ZeroNet with main action
+            if current_parser.exited and self.action == "main":  # Argument parsing halted, don't start KomputerNet with main action
                 self.action = None
             current_parser._print_message = original_print_message
             current_parser.exit = original_exit

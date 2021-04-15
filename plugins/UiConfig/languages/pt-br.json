@@ -1,7 +1,7 @@
 {
-	"ZeroNet config": "Configurações da ZeroNet",
+	"KomputerNet config": "Configurações da KomputerNet",
 	"Web Interface": "Interface Web",
-	"Open web browser on ZeroNet startup": "Abrir navegador da web quando a ZeroNet iniciar",
+	"Open web browser on KomputerNet startup": "Abrir navegador da web quando a KomputerNet iniciar",
 
 	"Network": "Rede",
 	"File server port": "Porta de servidor de arquivos",
@@ -29,7 +29,7 @@
 	"configuration item value changed": " valor do item de configuração foi alterado",
 	"Save settings": "Salvar configurações",
 	"Some changed settings requires restart": "Algumas configurações alteradas requrem reinicialização",
-	"Restart ZeroNet client": "Reiniciar cliente da ZeroNet",
+	"Restart KomputerNet client": "Reiniciar cliente da KomputerNet",
 
 	"Offline mode": "Modo offline",
 	"Disable network communication.": "Desativar a comunicação em rede.",

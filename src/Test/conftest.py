@@ -76,8 +76,8 @@ config.verbose = True  # Use test data for unittests
 config.tor = "disable"  # Don't start Tor client
 config.trackers = []
 config.data_dir = TEST_DATA_PATH  # Use test data for unittests
-if "ZERONET_LOG_DIR" in os.environ:
-    config.log_dir = os.environ["ZERONET_LOG_DIR"]
+if "KOMPUTERNET_LOG_DIR" in os.environ:
+    config.log_dir = os.environ["KOMPUTERNET_LOG_DIR"]
 config.initLogging(console_logging=False)
 
 # Set custom formatter with realative time format (via: https://stackoverflow.com/questions/31521859/python-logging-module-time-since-last-log)
@@ -278,7 +278,7 @@ def site_url():
     try:
         urllib.request.urlopen(SITE_URL).read()
     except Exception as err:
-        raise pytest.skip("Test requires zeronet client running: %s" % err)
+        raise pytest.skip("Test requires komputernet client running: %s" % err)
     return SITE_URL
 
 
@@ -400,10 +400,10 @@ def tor_manager():
 
 @pytest.fixture()
 def db(request):
-    db_path = "%s/zeronet.db" % config.data_dir
+    db_path = "%s/komputernet.db" % config.data_dir
     schema = {
         "db_name": "TestDb",
-        "db_file": "%s/zeronet.db" % config.data_dir,
+        "db_file": "%s/komputernet.db" % config.data_dir,
         "maps": {
             "data.json": {
                 "to_table": [

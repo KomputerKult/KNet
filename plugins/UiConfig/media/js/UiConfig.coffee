@@ -13,7 +13,7 @@ class UiConfig extends ZeroFrame
 				return null
 
 	onOpenWebsocket: =>
-		@cmd("wrapperSetTitle", "Config - ZeroNet")
+		@cmd("wrapperSetTitle", "Config - KomputerNet")
 		@cmd "serverInfo", {}, (server_info) =>
 			@server_info = server_info
 		@restart_loading = false
@@ -122,7 +122,7 @@ class UiConfig extends ZeroFrame
 		values_changed = @getValuesChanged()
 		h("div.bottom.bottom-restart", {classes: {visible: values_pending.length and not values_changed.length}}, h("div.bottom-content", [
 			h("div.title", "Some changed settings requires restart"),
-			h("a.button.button-submit.button-restart", {href: "#Restart", classes: {loading: @restart_loading}, onclick: @handleRestartClick}, "Restart ZeroNet client")
+			h("a.button.button-submit.button-restart", {href: "#Restart", classes: {loading: @restart_loading}, onclick: @handleRestartClick}, "Restart KomputerNet client")
 		]))
 
 window.Page = new UiConfig()

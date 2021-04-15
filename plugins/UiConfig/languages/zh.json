@@ -1,7 +1,7 @@
 {
-	"ZeroNet config": "ZeroNet配置",
+	"KomputerNet config": "KomputerNet配置",
 	"Web Interface": "网页界面",
-	"Open web browser on ZeroNet startup": "ZeroNet启动时,打开浏览器",
+	"Open web browser on KomputerNet startup": "KomputerNet启动时,打开浏览器",
 
 	"Network": "网络",
 	"Offline mode": "离线模式",
@@ -58,5 +58,5 @@
 	" configuration item value changed": " 个配置值已经改变",
 	"Save settings": "保存配置",
 	"Some changed settings requires restart": "一些配置已改变,需要重启才能生效",
-	"Restart ZeroNet client": "重启ZeroNet客户端"
+	"Restart KomputerNet client": "重启KomputerNet客户端"
 }

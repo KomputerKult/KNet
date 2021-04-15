@@ -52,7 +52,7 @@ class Loading
 			line.after(button)
 			if not server_info.tor_has_meek_bridges
 				button.addClass("disabled")
-				@printLine("No meek bridge support in your client, please <a href='https://github.com/HelloZeroNet/ZeroNet#how-to-join'>download the latest bundle</a>.", "warning")
+				@printLine("No meek bridge support in your client, please <a href='https://github.com/HelloKomputerNet/KomputerNet#how-to-join'>download the latest bundle</a>.", "warning")
 
 	# We dont need loadingscreen anymore
 	hideScreen: ->

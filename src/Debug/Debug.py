@@ -74,7 +74,7 @@ def formatTraceback(items, limit=None, fold_builtin=True):
                 else:
                     # For unknown paths, do our best to hide absolute path
                     file_title = path
-                    for needle in ("/zeronet/", "/core/"):
+                    for needle in ("/komputernet/", "/core/"):
                         if needle in file_title.lower():
                             file_title = "?/" + file_title[file_title.lower().rindex(needle) + len(needle):]
 

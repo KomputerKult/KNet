@@ -9,7 +9,7 @@ def main():
         sys.exit(0)
 
     if "--silent" not in sys.argv:
-        print("- Starting ZeroNet...")
+        print("- Starting KomputerNet...")
 
     main = None
     try:
@@ -27,7 +27,7 @@ def main():
         error_log_path = config.log_dir + "/error.log"
         traceback.print_exc(file=open(error_log_path, "w"))
         print("---")
-        print("Please report it: https://github.com/HelloZeroNet/ZeroNet/issues/new?assignees=&labels=&template=bug-report.md")
+        print("Please report it: https://github.com/HelloKomputerNet/KomputerNet/issues/new?assignees=&labels=&template=bug-report.md")
         if sys.platform.startswith("win") and "python.exe" not in sys.executable:
             displayErrorMessage(err, error_log_path)
 
@@ -63,10 +63,10 @@ def displayErrorMessage(err, error_log_path):
     err_message = "%s: %s" % (type(err).__name__, err)
     err_title = "Unhandled exception: %s\nReport error?" % err_message
 
-    res = ctypes.windll.user32.MessageBoxW(0, err_title, "ZeroNet error", MB_YESNOCANCEL | MB_ICONEXCLAIMATION)
+    res = ctypes.windll.user32.MessageBoxW(0, err_title, "KomputerNet error", MB_YESNOCANCEL | MB_ICONEXCLAIMATION)
     if res == ID_YES:
         import webbrowser
-        report_url = "https://github.com/HelloZeroNet/ZeroNet/issues/new?assignees=&labels=&template=bug-report.md&title=%s"
+        report_url = "https://github.com/HelloKomputerNet/KomputerNet/issues/new?assignees=&labels=&template=bug-report.md&title=%s"
         webbrowser.open(report_url % urllib.parse.quote("Unhandled exception: %s" % err_message))
     if res in [ID_YES, ID_NO]:
         subprocess.Popen(['notepad.exe', error_log_path])
@@ -121,7 +121,7 @@ def restart():
 
 def start():
     app_dir = os.path.dirname(os.path.abspath(__file__))
-    os.chdir(app_dir)  # Change working dir to zeronet.py dir
+    os.chdir(app_dir)  # Change working dir to komputernet.py dir
     sys.path.insert(0, os.path.join(app_dir, "src/lib"))  # External liblary directory
     sys.path.insert(0, os.path.join(app_dir, "src"))  # Imports relative to src
 

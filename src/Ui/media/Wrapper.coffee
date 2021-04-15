@@ -503,7 +503,7 @@ class Wrapper
 		if @ws.ws.readyState == 1 and not @site_info # Ws opened
 			@reloadSiteInfo()
 		else if @site_info and @site_info.content?.title? and not @is_title_changed
-			window.document.title = @site_info.content.title + " - ZeroNet"
+			window.document.title = @site_info.content.title + " - KomputerNet"
 			@log "Setting title to", window.document.title
 
 	onWrapperLoad: =>
@@ -538,7 +538,7 @@ class Wrapper
 							@notifications.add("size_limit", "done", "Site storage limit modified!", 5000)
 
 			if site_info.content?.title? and not @is_title_changed
-				window.document.title = site_info.content.title + " - ZeroNet"
+				window.document.title = site_info.content.title + " - KomputerNet"
 				@log "Setting title to", window.document.title
 
 
@@ -555,7 +555,7 @@ class Wrapper
 					@loading.hideScreen()
 					if not @site_info then @reloadSiteInfo()
 					if site_info.content and not @is_title_changed
-						window.document.title = site_info.content.title + " - ZeroNet"
+						window.document.title = site_info.content.title + " - KomputerNet"
 						@log "Required file #{window.file_inner_path} done, setting title to", window.document.title
 					if not window.show_loadingscreen
 						@notifications.add("modified", "info", "New version of this page has just released.<br>Reload to see the modified content.")
@@ -708,7 +708,7 @@ if origin.indexOf("https:") == 0
 else
 	proto = { ws: 'ws', http: 'http' }
 
-ws_url = proto.ws + ":" + origin.replace(proto.http+":", "") + "/ZeroNet-Internal/Websocket?wrapper_key=" + window.wrapper_key
+ws_url = proto.ws + ":" + origin.replace(proto.http+":", "") + "/KomputerNet-Internal/Websocket?wrapper_key=" + window.wrapper_key
 
 window.wrapper = new Wrapper(ws_url)
 

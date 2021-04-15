@@ -401,7 +401,7 @@ class ActionsPlugin:
 
     def testAll(self):
         """
-        Run all tests to check system compatibility with ZeroNet functions
+        Run all tests to check system compatibility with KomputerNet functions
         """
         for progress in self.testBenchmark(online=not config.offline, num_run=1):
             yield progress

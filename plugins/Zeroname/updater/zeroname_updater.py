@@ -25,35 +25,35 @@ def processNameOp(domain, value, test=False):
     except Exception as err:
         print("Json load error: %s" % err)
         return False
-    if "zeronet" not in data and "map" not in data:
-    # Namecoin standard use {"map": { "blog": {"zeronet": "1D..."} }}
-        print("No zeronet and no map in ", data.keys())
+    if "komputernet" not in data and "map" not in data:
+    # Namecoin standard use {"map": { "blog": {"komputernet": "1D..."} }}
+        print("No komputernet and no map in ", data.keys())
         return False
     if "map" in data:
-    # If subdomains using the Namecoin standard is present, just re-write in the Zeronet way
+    # If subdomains using the Namecoin standard is present, just re-write in the Komputernet way
     # and call the function again
         data_map = data["map"]
         new_value = {}
         for subdomain in data_map:
-            if "zeronet" in data_map[subdomain]:
-                new_value[subdomain] = data_map[subdomain]["zeronet"]
-        if "zeronet" in data and isinstance(data["zeronet"], string_types):
+            if "komputernet" in data_map[subdomain]:
+                new_value[subdomain] = data_map[subdomain]["komputernet"]
+        if "komputernet" in data and isinstance(data["komputernet"], string_types):
         # {
-        #    "zeronet":"19rXKeKptSdQ9qt7omwN82smehzTuuq6S9",
+        #    "komputernet":"19rXKeKptSdQ9qt7omwN82smehzTuuq6S9",
         #    ....
         # }
-            new_value[""] = data["zeronet"]
+            new_value[""] = data["komputernet"]
         if len(new_value) > 0:
-            return processNameOp(domain, json.dumps({"zeronet": new_value}), test)
+            return processNameOp(domain, json.dumps({"komputernet": new_value}), test)
         else:
             return False
-    if "zeronet" in data and isinstance(data["zeronet"], string_types):
+    if "komputernet" in data and isinstance(data["komputernet"], string_types):
     # {
-    #    "zeronet":"19rXKeKptSdQ9qt7omwN82smehzTuuq6S9"
+    #    "komputernet":"19rXKeKptSdQ9qt7omwN82smehzTuuq6S9"
     # } is valid
-        return processNameOp(domain, json.dumps({"zeronet": { "": data["zeronet"]}}), test)
-    if not isinstance(data["zeronet"], dict):
-        print("Not dict: ", data["zeronet"])
+        return processNameOp(domain, json.dumps({"komputernet": { "": data["komputernet"]}}), test)
+    if not isinstance(data["komputernet"], dict):
+        print("Not dict: ", data["komputernet"])
         return False
     if not re.match("^[a-z0-9]([a-z0-9-]{0,62}[a-z0-9])?$", domain):
         print("Invalid domain: ", domain)
@@ -69,7 +69,7 @@ def processNameOp(domain, value, test=False):
     # Note: Requires the file data/names.json to exist and contain "{}" to work
     names_raw = open(names_path, "rb").read()
     names = json.loads(names_raw)
-    for subdomain, address in data["zeronet"].items():
+    for subdomain, address in data["komputernet"].items():
         subdomain = subdomain.lower()
         address = re.sub("[^A-Za-z0-9]", "", address)
         print(subdomain, domain, "->", address)
@@ -154,17 +154,17 @@ else:
 config_path = namecoin_location + 'zeroname_config.json'
 if not os.path.isfile(config_path):  # Create sample config
     open(config_path, "w").write(
-        json.dumps({'site': 'site', 'zeronet_path': '/home/zeronet', 'privatekey': '', 'lastprocessed': 223910}, indent=2)
+        json.dumps({'site': 'site', 'komputernet_path': '/home/komputernet', 'privatekey': '', 'lastprocessed': 223910}, indent=2)
     )
     print("* Example config written to %s" % config_path)
     sys.exit(0)
 
 config = json.load(open(config_path))
-names_path = "%s/data/%s/data/names.json" % (config["zeronet_path"], config["site"])
-os.chdir(config["zeronet_path"])  # Change working dir - tells script where Zeronet install is.
+names_path = "%s/data/%s/data/names.json" % (config["komputernet_path"], config["site"])
+os.chdir(config["komputernet_path"])  # Change working dir - tells script where Komputernet install is.
 
 # Parameters to sign and publish
-command_sign_publish = [sys.executable, "zeronet.py", "siteSign", config["site"], config["privatekey"], "--publish"]
+command_sign_publish = [sys.executable, "komputernet.py", "siteSign", config["site"], config["privatekey"], "--publish"]
 if sys.platform == 'win32':
     command_sign_publish = ['"%s"' % param for param in command_sign_publish]
 
@@ -195,7 +195,7 @@ if not config["lastprocessed"]:  # First startup: Start processing from last blo
 
 
 print("- Testing domain parsing...")
-assert processBlock(223911, test=True) # Testing zeronetwork.bit
+assert processBlock(223911, test=True) # Testing komputernetwork.bit
 assert processBlock(227052, test=True) # Testing brainwallets.bit
 assert not processBlock(236824, test=True) # Utf8 domain name (invalid should skip)
 assert not processBlock(236752, test=True) # Uppercase domain (invalid should skip)

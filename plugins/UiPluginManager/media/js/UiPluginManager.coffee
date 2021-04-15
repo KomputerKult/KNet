@@ -9,7 +9,7 @@ class UiPluginManager extends ZeroFrame
 		@
 
 	onOpenWebsocket: =>
-		@cmd("wrapperSetTitle", "Plugin manager - ZeroNet")
+		@cmd("wrapperSetTitle", "Plugin manager - KomputerNet")
 		@cmd "serverInfo", {}, (server_info) =>
 			@server_info = server_info
 		@updatePlugins()
@@ -63,7 +63,7 @@ class UiPluginManager extends ZeroFrame
 			h("div.title", "Some plugins status has been changed"),
 			h("a.button.button-submit.button-restart",
 				{href: "#Restart", classes: {loading: @restart_loading}, onclick: @handleRestartClick},
-				"Restart ZeroNet client"
+				"Restart KomputerNet client"
 			)
 		]))
 

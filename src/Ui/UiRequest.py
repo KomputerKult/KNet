@@ -151,8 +151,8 @@ class UiRequest(object):
         elif path in ("/favicon.ico", "/apple-touch-icon.png"):
             return self.actionFile("src/Ui/media/img/%s" % path)
         # Internal functions
-        elif "/ZeroNet-Internal/" in path:
-            path = re.sub(".*?/ZeroNet-Internal/", "/", path)
+        elif "/KomputerNet-Internal/" in path:
+            path = re.sub(".*?/KomputerNet-Internal/", "/", path)
             func = getattr(self, "action" + path.strip("/"), None)  # Check if we have action+request_path function
             if func:
                 return func()
@@ -428,7 +428,7 @@ class UiRequest(object):
                 gevent.spawn(site.update, announce=True)
 
             return iter([self.renderWrapper(site, path, inner_path, title, extra_headers, script_nonce=script_nonce)])
-            # Make response be sent at once (see https://github.com/HelloZeroNet/ZeroNet/issues/1092)
+            # Make response be sent at once (see https://github.com/HelloKomputerNet/KomputerNet/issues/1092)
 
         else:  # Bad url
             return False
@@ -450,7 +450,7 @@ class UiRequest(object):
         return server_url
 
     def processQueryString(self, site, query_string):
-        match = re.search("zeronet_peers=(.*?)(&|$)", query_string)
+        match = re.search("komputernet_peers=(.*?)(&|$)", query_string)
         if match:
             query_string = query_string.replace(match.group(0), "")
             num_added = 0
@@ -760,7 +760,7 @@ class UiRequest(object):
 
             if send_header:
                 extra_headers = extra_headers.copy()
-                content_encoding = self.get.get("zeronet_content_encoding", "")
+                content_encoding = self.get.get("komputernet_content_encoding", "")
                 if all(part.strip() in ("gzip", "compress", "deflate", "identity", "br") for part in content_encoding.split(",")):
                     extra_headers["Content-Encoding"] = content_encoding
                 extra_headers["Accept-Ranges"] = "bytes"
@@ -921,7 +921,7 @@ class UiRequest(object):
 
         if details and config.debug:
             details = {key: val for key, val in list(self.env.items()) if hasattr(val, "endswith") and "COOKIE" not in key}
-            details["version_zeronet"] = "%s r%s" % (config.version, config.rev)
+            details["version_komputernet"] = "%s r%s" % (config.version, config.rev)
             details["version_python"] = sys.version
             details["version_gevent"] = gevent.__version__
             details["plugins"] = PluginManager.plugin_manager.plugin_names
@@ -934,7 +934,7 @@ class UiRequest(object):
                 </style>
                 <h1>%s</h1>
                 <h2>%s</h3>
-                <h3>Please <a href="https://github.com/HelloZeroNet/ZeroNet/issues" target="_top">report it</a> if you think this an error.</h3>
+                <h3>Please <a href="https://github.com/HelloKomputerNet/KomputerNet/issues" target="_top">report it</a> if you think this an error.</h3>
                 <h4>Details:</h4>
                 <pre>%s</pre>
             """ % (title, html.escape(message), html.escape(json.dumps(details, indent=4, sort_keys=True)))

@@ -48,7 +48,7 @@ class ConfigStorage extends Class
 
 		section.items.push
 			key: "open_browser"
-			title: "Open web browser on ZeroNet startup"
+			title: "Open web browser on KomputerNet startup"
 			type: "checkbox"
 
 		# Network

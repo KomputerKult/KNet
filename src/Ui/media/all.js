@@ -719,7 +719,7 @@ $.extend( $.easing,
         line.after(button);
         if (!server_info.tor_has_meek_bridges) {
           button.addClass("disabled");
-          return this.printLine("No meek bridge support in your client, please <a href='https://github.com/HelloZeroNet/ZeroNet#how-to-join'>download the latest bundle</a>.", "warning");
+          return this.printLine("No meek bridge support in your client, please <a href='https://github.com/HelloKomputernet/Komputernet#how-to-join'>download the latest bundle</a>.", "warning");
         }
       }
     };
@@ -1698,7 +1698,7 @@ $.extend( $.easing,
       if (this.ws.ws.readyState === 1 && !this.site_info) {
         return this.reloadSiteInfo();
       } else if (this.site_info && (((ref = this.site_info.content) != null ? ref.title : void 0) != null) && !this.is_title_changed) {
-        window.document.title = this.site_info.content.title + " - ZeroNet";
+        window.document.title = this.site_info.content.title + " - Komputernet";
         return this.log("Setting title to", window.document.title);
       }
     };
@@ -1740,7 +1740,7 @@ $.extend( $.easing,
             });
           }
           if ((((ref = site_info.content) != null ? ref.title : void 0) != null) && !_this.is_title_changed) {
-            window.document.title = site_info.content.title + " - ZeroNet";
+            window.document.title = site_info.content.title + " - Komputernet";
             return _this.log("Setting title to", window.document.title);
           }
         };
@@ -1760,7 +1760,7 @@ $.extend( $.easing,
               this.reloadSiteInfo();
             }
             if (site_info.content && !this.is_title_changed) {
-              window.document.title = site_info.content.title + " - ZeroNet";
+              window.document.title = site_info.content.title + " - Komputernet";
               this.log("Required file " + window.file_inner_path + " done, setting title to", window.document.title);
             }
             if (!window.show_loadingscreen) {
@@ -2005,7 +2005,7 @@ $.extend( $.easing,
     };
   }
 
-  ws_url = proto.ws + ":" + origin.replace(proto.http + ":", "") + "/ZeroNet-Internal/Websocket?wrapper_key=" + window.wrapper_key;
+  ws_url = proto.ws + ":" + origin.replace(proto.http + ":", "") + "/Komputernet-Internal/Websocket?wrapper_key=" + window.wrapper_key;
 
   window.wrapper = new Wrapper(ws_url);
 

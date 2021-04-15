@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve ZeroNet
+about: Create a report to help us improve KomputerNet
 title: ''
 labels: ''
 assignees: ''
@@ -9,7 +9,7 @@ assignees: ''
 
 ### Step 1: Please describe your environment
 
-  * ZeroNet version: _____
+  * KomputerNet version: _____
   * Operating system: _____
   * Web browser: _____
   * Tor status: not available/always/disabled
@@ -26,7 +26,7 @@ assignees: ''
 
 #### Observed Results:
 
-  * What happened? This could be a screenshot, a description, log output (you can send log/debug.log file to hello@zeronet.io if necessary), etc.
+  * What happened? This could be a screenshot, a description, log output (you can send log/debug.log file to hello@komputernet.io if necessary), etc.
 
 #### Expected Results:
 

@@ -11,11 +11,11 @@ allow_reload = False # No reload supported
 class SiteManagerPlugin(object):
     def load(self, *args, **kwargs):
         super(SiteManagerPlugin, self).load(*args, **kwargs)
-        self.log = logging.getLogger("ZeronetLocal Plugin")
+        self.log = logging.getLogger("KomputernetLocal Plugin")
         self.error_message = None
         if not config.namecoin_host or not config.namecoin_rpcport or not config.namecoin_rpcuser or not config.namecoin_rpcpassword:
             self.error_message = "Missing parameters"
-            self.log.error("Missing parameters to connect to namecoin node. Please check all the arguments needed with '--help'. Zeronet will continue working without it.")
+            self.log.error("Missing parameters to connect to namecoin node. Please check all the arguments needed with '--help'. Komputernet will continue working without it.")
             return
 
         url = "%(host)s:%(port)s" % {"host": config.namecoin_host, "port": config.namecoin_rpcport}
@@ -26,7 +26,7 @@ class SiteManagerPlugin(object):
 
         payload = json.dumps({
             "jsonrpc": "2.0",
-            "id": "zeronet",
+            "id": "komputernet",
             "method": "ping",
             "params": []
         })
@@ -41,7 +41,7 @@ class SiteManagerPlugin(object):
             else:
                 raise Exception(response.reason)
         except Exception as err:
-            self.log.error("The Namecoin node is unreachable. Please check the configuration value are correct. Zeronet will continue working without it.")
+            self.log.error("The Namecoin node is unreachable. Please check the configuration value are correct. Komputernet will continue working without it.")
             self.error_message = err
         self.cache = dict()
 
@@ -120,7 +120,7 @@ class SiteManagerPlugin(object):
 
         payload = json.dumps({
             "jsonrpc": "2.0",
-            "id": "zeronet",
+            "id": "komputernet",
             "method": "name_show",
             "params": ["d/"+domain]
         })
@@ -135,35 +135,35 @@ class SiteManagerPlugin(object):
             #domain doesn't exist
             return None
 
-        if "zeronet" in domain_object["value"]:
-            zeronet_domains = json.loads(domain_object["value"])["zeronet"]
+        if "komputernet" in domain_object["value"]:
+            komputernet_domains = json.loads(domain_object["value"])["komputernet"]
 
-            if isinstance(zeronet_domains, str):
+            if isinstance(komputernet_domains, str):
                 # {
-                #    "zeronet":"19rXKeKptSdQ9qt7omwN82smehzTuuq6S9"
+                #    "komputernet":"19rXKeKptSdQ9qt7omwN82smehzTuuq6S9"
                 # } is valid
-                zeronet_domains = {"": zeronet_domains}
+                komputernet_domains = {"": komputernet_domains}
 
-            self.cache[domain] = {"addresses_resolved": zeronet_domains, "time": time.time()}
+            self.cache[domain] = {"addresses_resolved": komputernet_domains, "time": time.time()}
 
         elif "map" in domain_object["value"]:
-            # Namecoin standard use {"map": { "blog": {"zeronet": "1D..."} }}
+            # Namecoin standard use {"map": { "blog": {"komputernet": "1D..."} }}
             data_map = json.loads(domain_object["value"])["map"]
 
-            zeronet_domains = dict()
+            komputernet_domains = dict()
             for subdomain in data_map:
-                if "zeronet" in data_map[subdomain]:
-                    zeronet_domains[subdomain] = data_map[subdomain]["zeronet"]
-            if "zeronet" in data_map and isinstance(data_map["zeronet"], str):
+                if "komputernet" in data_map[subdomain]:
+                    komputernet_domains[subdomain] = data_map[subdomain]["komputernet"]
+            if "komputernet" in data_map and isinstance(data_map["komputernet"], str):
                 # {"map":{
-                #    "zeronet":"19rXKeKptSdQ9qt7omwN82smehzTuuq6S9",
+                #    "komputernet":"19rXKeKptSdQ9qt7omwN82smehzTuuq6S9",
                 # }}
-                zeronet_domains[""] = data_map["zeronet"]
+                komputernet_domains[""] = data_map["komputernet"]
 
-            self.cache[domain] = {"addresses_resolved": zeronet_domains, "time": time.time()}
+            self.cache[domain] = {"addresses_resolved": komputernet_domains, "time": time.time()}
 
         else:
-            # No Zeronet address registered
+            # No Komputernet address registered
             return None
 
         return self.cache[domain]["addresses_resolved"][subdomain]

@@ -579,7 +579,7 @@ class ActionsPlugin:
         yield "\n"
 
         yield from self.formatTable(
-            ["ZeroNet version:", "%s rev%s" % (config.version, config.rev)],
+            ["KomputerNet version:", "%s rev%s" % (config.version, config.rev)],
             ["Python:", "%s" % sys.version],
             ["Platform:", "%s" % sys.platform],
             ["Crypt verify lib:", "%s" % CryptBitcoin.lib_verify_best],

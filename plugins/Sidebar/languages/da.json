@@ -61,7 +61,7 @@
 	"Sign": "Signer",
 	"Publish": "Offentliggør",
 
-	"This function is disabled on this proxy": "Denne funktion er slået fra på denne ZeroNet proxyEz a funkció ki van kapcsolva ezen a proxy-n",
+	"This function is disabled on this proxy": "Denne funktion er slået fra på denne KomputerNet proxyEz a funkció ki van kapcsolva ezen a proxy-n",
 	"GeoLite2 City database download error: {}!<br>Please download manually and unpack to data dir:<br>{}": "GeoLite2 City database kunne ikke downloades: {}!<br>Download venligst databasen manuelt og udpak i data folder:<br>{}",
 	"Downloading GeoLite2 City database (one time only, ~20MB)...": "GeoLite2 város adatbázis letöltése (csak egyszer kell, kb 20MB)...",
 	"GeoLite2 City database downloaded!": "GeoLite2 City database downloadet!",
